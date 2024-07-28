@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glowing Border Box</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #333333;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: #b4adada6;
+            position: relative;
+            color: #ffffff;
+            padding: 8%;
+            border-radius: 15px;
+            
+        }
+
+        .box::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background:linear-gradient(80deg,  #17b195, #1cb591,#333333, #1cbb8b, #084c3a);
+            background-size: 600% 600%;
+            border-radius: 10px;
+            filter: blur(20px);
+            z-index: -1;
+            animation: glow 10s linear infinite;
+        }
+
+        @keyframes glow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 10%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+       <img height="180px" width="200" src="img/lightlogo2.png" alt="">
+    </div>
+</body>
+</html>
